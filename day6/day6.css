@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fff7dc;
+  font-family: "Comic Sans MS", "Microsoft YaHei", sans-serif;
+  color: #7a4b16;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.tip {
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #9b6a2f;
+}
+
+.coupon-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.coupon-card {
+  height: 145px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.coupon-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.coupon-card.flipped .coupon-inner {
+  transform: rotateY(180deg);
+}
+
+.coupon-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.coupon-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coupon-back {
+  background: #fff0bf;
+  border: 2px dashed #d6a34a;
+  box-sizing: border-box;
+  padding: 22px 18px;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.coupon-back h3 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+
+.coupon-back p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+#final-message {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.8s ease;
+  margin-top: 40px;
+}
+
+#final-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.final-subtitle {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #a36a2c;
+}
