@@ -1,0 +1,359 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: url("./bg.png") center/cover no-repeat;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #7a5a50;
+}
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+.text {
+  position: absolute;
+  top: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84vw;
+  min-height: 90px;
+  font-size: 31px;
+  line-height: 1.35;
+  color: #795751;
+  text-shadow: 0 0 14px rgba(255,255,255,0.95);
+  z-index: 10;
+}
+
+.next-btn {
+  position: absolute;
+  top: 22vh;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 17px;
+  color: #875860;
+  background: linear-gradient(145deg, #fff7fa, #ffc9dc);
+  border: 1px solid rgba(255, 175, 205, 0.9);
+  box-shadow:
+    0 8px 18px rgba(221, 133, 158, 0.28),
+    0 0 22px rgba(255, 205, 220, 0.7),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+  z-index: 25;
+  cursor: pointer;
+}
+
+.next-btn.hide {
+  display: none;
+}
+
+.choices {
+  position: absolute;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.6s ease;
+  z-index: 20;
+}
+
+.choices.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.pink-btn {
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-size: 18px;
+  color: #875860;
+  background: linear-gradient(145deg, #fff5f8, #ffc8d8);
+  border: 1px solid rgba(255, 178, 201, 0.9);
+  box-shadow:
+    0 8px 18px rgba(221, 133, 158, 0.28),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+  transition: 0.25s ease;
+}
+
+.pink-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.drawer {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  width: 330px;
+  transform: translateX(-50%) translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.8s ease;
+  z-index: 8;
+  cursor: pointer;
+}
+
+.drawer.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.drawer-img {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 18px 24px rgba(115, 76, 66, 0.25));
+}
+
+.drawer-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.drawer.opened #ct {
+  opacity: 0;
+}
+
+.drawer.opened #ct2 {
+  opacity: 1;
+}
+
+.drawer-hint {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #875860;
+  text-shadow: 0 0 10px rgba(255,255,255,0.95);
+  animation: hintFloat 1.8s ease-in-out infinite;
+}
+
+.drawer.opened .drawer-hint {
+  display: none;
+}
+
+@keyframes hintFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.makeup-area {
+  position: absolute;
+  top: 31vh;
+  left: 50%;
+  width: 330px;
+  transform: translateX(-50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.8s ease;
+  z-index: 15;
+}
+
+.makeup-area.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+.mouth-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.mouth-img {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: block;
+  filter:
+    drop-shadow(0 0 14px rgba(255, 218, 228, 0.85))
+    brightness(1.03)
+    contrast(1.06);
+}
+
+/* 新版：更大、更接近整张嘴唇的涂色区域 */
+.paint-canvas {
+  position: absolute;
+  z-index: 4;
+
+  left: 7%;
+  top: 18%;
+  width: 86%;
+  height: 62%;
+
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: blur(0.8px) saturate(1.35);
+
+  clip-path: polygon(
+    4% 52%,
+    12% 40%,
+    24% 30%,
+    38% 20%,
+    50% 28%,
+    62% 20%,
+    76% 30%,
+    88% 40%,
+    96% 52%,
+    88% 64%,
+    74% 75%,
+    58% 82%,
+    50% 76%,
+    42% 82%,
+    26% 75%,
+    12% 64%
+  );
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #84605a;
+  text-shadow: 0 0 10px rgba(255,255,255,0.9);
+}
+
+.lip {
+  position: fixed;
+  width: 95px;
+  left: 50%;
+  top: 63vh;
+  opacity: 0;
+  transform: translate(-50%, -18%) rotate(-12deg);
+  cursor: pointer;
+  z-index: 80;
+  filter: drop-shadow(0 0 14px rgba(255, 224, 171, 0.85));
+  transition: opacity 0.5s ease;
+  user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.lip.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lip.active {
+  filter:
+    drop-shadow(0 0 18px rgba(255, 190, 210, 0.95))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+}
+
+.final {
+  position: absolute;
+  left: 50%;
+  top: 18vh;
+  width: min(720px, 86vw);
+  transform: translateX(-50%) translateY(10px);
+  font-size: 30px;
+  line-height: 1.35;
+  color: #76514f;
+  text-shadow: 0 0 18px rgba(255,255,255,1);
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s ease;
+  z-index: 35;
+}
+
+.final.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 泡泡变大版 */
+.sparkle {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+  animation: sparkle 0.85s ease forwards;
+  z-index: 200;
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(4.8);
+  }
+}.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+
+  font-size: 15px;
+  text-decoration: none;
+
+  color: #875860;
+  background: rgba(255, 245, 248, 0.9);
+
+  box-shadow:
+    0 6px 14px rgba(221, 133, 158, 0.25),
+    0 0 12px rgba(255, 205, 220, 0.6);
+
+  backdrop-filter: blur(6px);
+
+  z-index: 999;
+  transition: 0.25s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 10px 20px rgba(221, 133, 158, 0.35),
+    0 0 18px rgba(255, 205, 220, 0.8);
+}.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  font-size: 16px;
+  text-decoration: none;
+
+  color: #fff;
+  background: #ff8fb1;
+
+  box-shadow: 0 8px 20px rgba(255, 120, 150, 0.6);
+
+  z-index: 99999; /* ⭐关键：防止被遮住 */
+
+  transition: 0.25s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.08);
+  background: #ff6f9f;
+}
