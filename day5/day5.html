@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 5 | Chocolate Lab</title>
+  <link rel="stylesheet" href="day5.css" />
+</head>
+
+<body>
+  <main class="page">
+    <a class="home-link" href="../house.html">← Back Home</a>
+
+    <section class="start-screen" id="startScreen">
+      <div class="main-card">
+        <p class="eyebrow">DAY 5</p>
+        <h1>Chocolate Lab</h1>
+        <p class="intro">Pick a chocolate. Unlock today’s little luck.</p>
+        <button class="main-btn" id="enterBtn">Enter the Lab</button>
+      </div>
+    </section>
+
+    <section class="lab-screen hidden" id="labScreen">
+      <div class="lab-header">
+        <p class="eyebrow">LUCKY CHOCOLATE BOX</p>
+        <h2>Tap the box to open today’s luck</h2>
+      </div>
+
+      <div class="box-area">
+        <img id="boxImg" class="box-img" src="box-closed.png" alt="closed chocolate box" />
+      </div>
+
+      <button class="main-btn hidden" id="drawBtn">Draw Today’s Lucky Chocolate</button>
+
+      <div class="result-card hidden" id="resultCard">
+        <img id="chocoImg" class="choco-img" src="" alt="lucky chocolate" />
+
+        <div class="card-text">
+          <p class="flavor" id="flavorName"></p>
+          <h3 id="cardTitle"></h3>
+
+          <div class="bonus">
+            <p>今日加成：</p>
+            <ul id="bonusList"></ul>
+          </div>
+
+          <div class="reminder">
+            <p>今日提醒：</p>
+            <span id="reminderText"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="counter" id="counter">Unlocked 0 / 6</div>
+
+      <div class="final-card hidden" id="finalCard">
+        <img class="final-img" src="final-gift.png" alt="final gift" />
+        <p>All six lucky chocolates are unlocked.</p>
+        <p>Today’s luck has been packed.</p>
+        <p>Your real-life reward is ready. Please claim it offline.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="day5.js"></script>
+</body>
+</html>
