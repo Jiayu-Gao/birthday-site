@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background-image: url("day1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed; /* ⭐关键 */
+}/* intro */
+.planet-intro {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planet-area {
+  text-align: center;
+}
+
+.planet-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.crayon-planet {
+  width: 310px;
+  max-width: 80vw;
+  display: block;
+  filter: drop-shadow(0 12px 14px rgba(80, 110, 70, 0.18));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+.planet-text {
+  margin-top: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #5fa46e;
+}
+
+.planet-hint {
+  margin-top: 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  color: #5fa46e;
+  opacity: 0.7;
+}
+
+/* 星球点击放大消失 */
+.planet-intro.disappear .planet-button {
+  animation: planetPopOut 0.85s ease forwards;
+}
+
+@keyframes planetPopOut {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  55% {
+    transform: scale(1.35) rotate(4deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1.75) rotate(-6deg);
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+.planet-intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* 粒子 */
+.planet-particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99;
+  background: #fff4a8;
+  box-shadow: 0 0 12px rgba(255, 240, 170, 0.9);
+  animation: particleBurst 0.9s ease-out forwards;
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.25);
+  }
+}
+
+/* 卡片 */
+.gift-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gift-section.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card {
+  width: 320px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px dashed #a7d7a7;
+  background: rgba(255, 255, 240, 0.85);
+  backdrop-filter: blur(3px);
+  transform: translateY(24px) scale(0.88) rotate(-2deg);
+  opacity: 0;
+}
+
+.gift-section.show .card {
+  animation: cardPopIn 0.85s cubic-bezier(0.2, 1.2, 0.3, 1) forwards;
+}
+
+@keyframes cardPopIn {
+  0% {
+    transform: translateY(28px) scale(0.86) rotate(-3deg);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(-6px) scale(1.03) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* 字体分层 */
+.card h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #6fae7f;
+  margin-bottom: 12px;
+  transform: rotate(-1deg);
+}
+
+.card p {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #5fa46e;
+  letter-spacing: 0.02em;
+}
+
+.pinocchio-img {
+  width: 160px;
+  margin-top: 15px;
+}
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  text-decoration: none;
+  color: #5fa46e;
+}
