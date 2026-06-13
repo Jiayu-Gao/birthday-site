@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: linear-gradient(180deg, #fff7d8 0%, #ffe9a8 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b4a1f;
+}
+
+.page {
+  width: 100%;
+max-width: 650px;  padding: 24px;
+  text-align: center;
+}
+
+.card-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(137, 96, 28, 0.22);
+
+  /* 整张卡片往上挪一点 */
+  transform: translateY(-30px);
+}
+
+.card-img {
+  width: 100%;
+  display: block;
+}
+
+.secret-message {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 2;
+  text-align: center;
+  color: #8a5a18;
+  pointer-events: none;
+}
+
+.secret-message h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.secret-message p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.secret-message .small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+#scratchCanvas {
+  position: absolute;
+  left: 10%;
+  top: 51%;
+  width: 80%;
+  height: 24%;
+  z-index: 3;
+  cursor: grab;
+  border-radius: 18px;
+  touch-action: none;
+}
+
+.hint {
+  margin-top: -6px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+  color: #8a5a18;
+  border: 1px solid rgba(138, 90, 24, 0.35);
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.home-link:hover {
+  background: rgba(255, 255, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+.revealed {
+  animation: glow 1.2s ease forwards;
+}
+
+@keyframes glow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
