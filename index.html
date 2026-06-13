@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Secret Entrance</title>
+
+<link rel="stylesheet" href="gate.css">
+</head>
+
+<body>
+
+<div class="gate-box">
+
+  <h1>✨ Before entering this little world...</h1>
+
+  <p>Please enter the secret code</p>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Secret code"
+  >
+
+  <button id="unlockBtn">
+    Unlock ✨
+  </button>
+
+  <p id="message"></p>
+
+</div>
+
+<script>
+const btn = document.getElementById("unlockBtn");
+
+btn.addEventListener("click", () => {
+
+  const password =
+    document.getElementById("password").value;
+
+  if(password === "20060621"){
+
+    window.location.href = "intro.html";
+
+  }else{
+
+    document.getElementById("message").textContent =
+      "Oops, that's not the secret code 💗";
+
+  }
+
+});
+</script>
+
+</body>
+</html>

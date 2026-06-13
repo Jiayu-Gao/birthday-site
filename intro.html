@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter the Little World</title>
+  <link rel="stylesheet" href="intro.css" />
+</head>
+<body>
+  <div class="intro-page">
+
+    <div class="particles"></div>
+    <div class="glow-circle"></div>
+
+    <p class="intro-small">You know what?</p>
+    <h1 class="intro-title">My friend is turning 20 soon!</h1>
+
+    <div class="loading-box">
+      <div class="loading-bar"></div>
+    </div>
+<button id="musicButton" class="music-button">Play music 🎵</button>
+
+<a class="enter-button" href="house.html" id="enterButton">Enter the little world ✨</a>   
+<audio id="bgm" src="music.mp3" loop></audio>
+ <p class="intro-footer">For you, this summer 💗</p>
+
+  </div>
+<script>
+  const musicButton = document.getElementById("musicButton");
+  const enterButton = document.getElementById("enterButton");
+  const introPage = document.querySelector(".intro-page");
+  const bgm = document.getElementById("bgm");
+
+  musicButton.addEventListener("click", function () {
+    bgm.play();
+    localStorage.setItem("musicPlaying", "true");
+    musicButton.textContent = "Music is playing 🎧";
+  });
+
+  enterButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    localStorage.setItem("musicTime", bgm.currentTime);
+
+    enterButton.classList.add("clicked");
+    introPage.classList.add("page-exit");
+
+    setTimeout(() => {
+      window.location.href = enterButton.getAttribute("href");
+    }, 700);
+  });
+</script>
+ <script>
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    document.body.appendChild(glow);
+
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+    });
+  </script>
+<script>
+  document.addEventListener("click", (e) => {
+    const dot = document.createElement("div");
+    dot.style.position = "fixed";
+    dot.style.left = e.clientX + "px";
+    dot.style.top = e.clientY + "px";
+    dot.style.width = "6px";
+    dot.style.height = "6px";
+    dot.style.background = "pink";
+    dot.style.borderRadius = "50%";
+    dot.style.pointerEvents = "none";
+    dot.style.animation = "burst 0.6s ease-out forwards";
+
+    document.body.appendChild(dot);
+
+    setTimeout(() => dot.remove(), 600);
+  });
+</script>
+</body></html>

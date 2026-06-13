@@ -1,0 +1,36 @@
+body{
+  margin:0;
+  height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:#ffd6e7;
+
+  font-family:sans-serif;
+}
+
+.gate-box{
+  text-align:center;
+}
+
+input{
+  padding:12px 18px;
+  border-radius:999px;
+  border:none;
+
+  width:240px;
+}
+
+button{
+
+  margin-top:15px;
+
+  padding:12px 24px;
+
+  border:none;
+  border-radius:999px;
+
+  cursor:pointer;
+}
