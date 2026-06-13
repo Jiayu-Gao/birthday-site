@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 10 Letter</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="day10.css" />
+</head>
+
+<body>
+  <audio id="bgMusic" src="music.mp4"></audio>
+<audio id="birthdayMusic" src="birthday.mp4"></audio>
+  <a class="home-btn" href="../house.html">⌂</a>
+
+  <section class="opening" id="opening">
+    <img src="bk.png" class="bg" alt="background" />
+
+    <div class="envelope-wrap" id="openLetter">
+      <img src="letter.png" class="envelope" alt="letter" />
+      <p class="hint">One last thing for you.</p>
+    </div>
+  </section>
+
+  <section class="letter-page hidden" id="letterPage">
+    <img src="bk.png" class="bg blur-bg" alt="background" />
+
+    <div class="paper-box">
+      <img src="paper.png" class="paper" alt="paper" />
+      <div class="letter-content" id="letterContent"></div>
+
+      <div class="controls">
+        <button id="prevBtn">上一页</button>
+        <span id="pageNum"></span>
+        <button id="nextBtn">继续</button>
+      </div>
+    </div>
+
+    <button class="music-btn" id="musicBtn">♪ Music On</button>
+  </section>
+
+  <section class="final-page hidden" id="finalPage">
+    <img src="final.png" class="final-full" alt="final" />
+
+    <div class="birthday-text">
+      <h1>Happy Birthday</h1>
+      <p>祝你二十岁生日快乐</p>
+    </div>
+  </section>
+
+  <script src="day10.js"></script>
+</body>
+</html>
