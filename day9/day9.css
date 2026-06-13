@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  color: #7a4b2b;
+}
+
+.scene {
+  display: none;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene.active {
+  display: block;
+}
+
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.shop-bg {
+  background-image: url("shop.jpg");
+}
+
+.mix-bg {
+  background-image: url("bake0.jpg");
+}
+
+.oven-bg {
+  background-image: url("oven.jpg");
+}
+
+.decorate-bg {
+  background-image: url("bake.jpg");
+}
+
+.card,
+.top-card {
+  position: relative;
+  z-index: 5;
+  width: min(520px, 86vw);
+  margin: 40px auto;
+  padding: 22px 28px;
+  text-align: center;
+  background: rgba(255, 248, 221, 0.82);
+  border: 2px solid rgba(255, 180, 190, 0.85);
+  border-radius: 28px;
+  box-shadow: 0 0 24px rgba(255, 190, 150, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.intro-card {
+  margin-top: 18vh;
+}
+
+.top-card {
+  margin-top: 24px;
+}
+
+.top-card.small {
+  padding: 14px 20px;
+}
+
+h1, h2, p {
+  margin-top: 0;
+}
+
+.main-btn,
+.next-btn,
+.cream-tools button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  background: #ffd3df;
+  color: #7a4b2b;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(215, 140, 120, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.main-btn:hover,
+.next-btn:hover,
+.cream-tools button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(215, 140, 120, 0.3);
+}
+
+.progress {
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  overflow: hidden;
+}
+
+#mix-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffe58a, #ffc4d6);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+/* mixing */
+#mix-area {
+  position: relative;
+  z-index: 3;
+  width: min(520px, 82vw);
+  height: 420px;
+  margin: 5vh auto 0;
+  cursor: pointer;
+}
+
+#bowl {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 12px 18px rgba(120, 80, 40, 0.25));
+}
+
+#whisk {
+  position: absolute;
+  width: 42%;
+  left: 58%;
+  top: 2%;
+    transform-origin: 50% 82%;
+  transform: translateX(-50%) rotate(-18deg);
+  transition: transform 0.18s ease;
+  pointer-events: none;
+}
+
+#mix-area.done {
+  animation: glowPulse 1s ease infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { filter: drop-shadow(0 0 8px rgba(255, 235, 150, 0.4)); }
+  to { filter: drop-shadow(0 0 24px rgba(255, 205, 120, 0.9)); }
+}
+
+/* oven */
+.oven-card {
+  margin-top: 58vh;
+}
+
+/* cake */
+.cake-stage,
+#decor-cake-area {
+  position: relative;
+  z-index: 4;
+  width: min(520px, 80vw);
+  height: 360px;
+  margin: 4vh auto 0;
+}
+
+.cake-img {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 16px 16px rgba(120, 80, 40, 0.22));
+}
+
+.cream-tools {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: min(720px, 90vw);
+  margin: 16px auto;
+}
+
+.next-btn {
+  position: fixed;
+  z-index: 30;
+  right: 28px;
+  bottom: 28px;
+}
+
+.wish-next {
+  bottom: 120px;
+}
+
+/* decorations */
+#decor-toolbar {
+  position: fixed;
+  z-index: 25;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: min(900px, 92vw);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  background: rgba(255, 248, 221, 0.85);
+  border: 2px solid rgba(255, 180, 190, 0.85);
+  border-radius: 26px;
+  backdrop-filter: blur(4px);
+}
+
+.decor-option {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  padding: 6px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.58);
+  cursor: pointer;
+  border: 2px solid transparent;
+  flex: 0 0 auto;
+}
+
+.decor-option.selected {
+  border-color: #ff91b8;
+  background: rgba(255, 220, 235, 0.9);
+}
+
+.placed-decor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 8;
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* wish */
+.wish-card {
+  margin-top: 22vh;
+}
+
+#wish-input {
+  width: 90%;
+  padding: 14px 18px;
+  margin: 12px 0 18px;
+  border-radius: 999px;
+  border: 2px solid #ffc0d2;
+  background: rgba(255,255,255,0.88);
+  font-size: 16px;
+  outline: none;
+}
+
+/* finish */
+#final-cake-area {
+  position: relative;
+  z-index: 4;
+  width: min(520px, 80vw);
+  height: 360px;
+  margin: 1vh auto 0;
+  animation: finalGlow 1.8s ease-in-out infinite alternate;
+  transform: scale(0.7);
+  transform-origin: center top;
+}
+
+#final-cake-area .final-copied-cake {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.final-card {
+  margin-top: 2vh;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #d9efb7;
+  color: #6e4a2c;
+  text-decoration: none;
+}
+
+.star-fall {
+  position: fixed;
+  top: -30px;
+  z-index: 50;
+  font-size: 22px;
+  pointer-events: none;
+  animation: fallStar 3s linear forwards;
+}
+
+@keyframes fallStar {
+  to {
+    transform: translateY(110vh) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+@keyframes finalGlow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(255, 210, 160, 0.45));
+  }
+  to {
+    filter: drop-shadow(0 0 32px rgba(255, 180, 210, 0.9));
+  }
+}

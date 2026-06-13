@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 9 · Tiny Cake Shop</title>
+  <link rel="stylesheet" href="day9.css" />
+</head>
+
+<body>
+<main id="game">
+
+  <!-- 1 shop -->
+  <section class="scene active" id="scene-shop">
+    <div class="scene-bg shop-bg"></div>
+    <div class="card intro-card">
+      <h1>Tiny Cake Shop</h1>
+      <p>Let’s bake a tiny birthday cake.</p>
+      <button class="main-btn" id="start-btn">Start Baking</button>
+    </div>
+  </section>
+
+  <!-- 2 mix -->
+  <section class="scene" id="scene-mix">
+    <div class="scene-bg mix-bg"></div>
+
+    <div class="top-card">
+      <h2>Mix the batter</h2>
+      <p id="mix-text">Tap the bowl to mix ✨</p>
+      <div class="progress"><div id="mix-bar"></div></div>
+    </div>
+
+    <div id="mix-area">
+      <img src="bowl.jpg" id="bowl" alt="bowl">
+      <img src="whisk.jpg" id="whisk" alt="whisk">
+    </div>
+  </section>
+
+  <!-- 3 oven -->
+  <section class="scene" id="scene-oven">
+    <div class="scene-bg oven-bg"></div>
+
+    <div class="card oven-card">
+      <h2>Time to bake!</h2>
+      <p id="oven-text">Put the batter into the tiny oven.</p>
+      <button class="main-btn" id="oven-btn">Put into oven</button>
+    </div>
+  </section>
+
+  <!-- 4 cream -->
+  <section class="scene" id="scene-cream">
+    <div class="scene-bg decorate-bg"></div>
+
+    <div class="top-card">
+      <h2>Choose the cream</h2>
+      <p>Pick a soft little color.</p>
+    </div>
+
+    <div class="cake-stage">
+      <img src="cake.jpg" id="cream-cake" class="cake-img" alt="cake">
+    </div>
+
+    <div class="cream-tools">
+      <button data-cake="cake-vanilla.jpg">Vanilla</button>
+      <button data-cake="cake-pink.jpg">Pink</button>
+      <button data-cake="cake-green.jpg">Matcha</button>
+      <button data-cake="cake-chocolate.jpg">Chocolate</button>
+    </div>
+
+    <button class="next-btn" id="to-decorate-btn">Decorate →</button>
+  </section>
+
+  <!-- 5 decorate -->
+  <section class="scene" id="scene-decorate">
+    <div class="scene-bg decorate-bg"></div>
+
+    <div class="top-card small">
+      <h2>Decorate the cake</h2>
+      <p>Choose one decoration, then tap the cake.</p>
+    </div>
+
+    <div id="decor-cake-area">
+      <img src="cake-vanilla.jpg" id="decor-cake" class="cake-img" alt="cake">
+    </div>
+
+    <div id="decor-toolbar"></div>
+
+    <button class="next-btn wish-next" id="to-wish-btn">Make a wish →</button>
+  </section>
+
+  <!-- 6 wish -->
+  <section class="scene" id="scene-wish">
+    <div class="scene-bg shop-bg"></div>
+
+    <div class="card wish-card">
+      <h2>Make a tiny wish</h2>
+      <input id="wish-input" placeholder="Write a little wish..." />
+      <button class="main-btn" id="finish-btn">Send Wish</button>
+    </div>
+  </section>
+
+  <!-- 7 finish -->
+  <section class="scene" id="scene-finish">
+    <div class="scene-bg shop-bg"></div>
+
+    <div id="final-cake-area"></div>
+
+    <div class="card final-card">
+      <h1>Happy 20th Birthday</h1>
+      <p id="final-wish"></p>
+      <p>
+        This tiny cake is made of sugar, stars, and all the little things I wanted to say to you.
+        <br><br>
+        May every little wish come true for you.
+        <br>
+        — from your sweetest friend, DIANDIAN 💗
+      </p>
+      <a class="back-home" href="../house.html">Back Home</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="day9.js"></script>
+</body>
+</html>
