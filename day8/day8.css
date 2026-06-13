@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fff4d7;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  overflow: hidden;
+}
+
+.game-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.machine-area {
+  position: relative;
+  width: min(86vw, 430px);
+  animation: fadeIn 0.8s ease;
+}
+
+.machine {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.claw {
+  position: absolute;
+  width: 76px;
+  left: 50%;
+  top: 14%;
+  transform: translateX(-50%);
+  z-index: 8;
+  transition: top 0.75s ease, transform 0.4s ease;
+}
+
+.gift-layer {
+  position: absolute;
+  width: 62%;
+  height: 26%;
+  left: 19%;
+  top: 50%;
+  z-index: 4;
+}
+
+.gift {
+  position: absolute;
+  width: 72px;
+  transition: all 0.7s ease;
+}
+
+.gift1 {
+  left: 0;
+  bottom: 8px;
+  transform: rotate(-8deg);
+}
+
+.gift2 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) rotate(4deg);
+  z-index: 5;
+}
+
+.gift3 {
+  right: 0;
+  bottom: 10px;
+  transform: rotate(9deg);
+}
+
+.hint-text {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: #8a5a34;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.play-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  border: none;
+  padding: 10px 30px;
+  border-radius: 999px;
+  background: #f5b8c7;
+  color: #805133;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #d990a2;
+}
+
+.play-btn:active {
+  transform: translateX(-50%) translateY(3px);
+  box-shadow: 0 2px 0 #d990a2;
+}
+
+.play-btn:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.machine-area.shake .claw {
+  animation: clawShake 0.32s ease infinite alternate;
+}
+
+.machine-area.drop .claw {
+  top: 47%;
+}
+
+.machine-area.fail-touch .gift2 {
+  animation: giftWobble 0.55s ease;
+}
+
+.machine-area.fail-lift .gift2 {
+  bottom: 80px;
+  transform: translateX(-50%) rotate(10deg) scale(0.94);
+}
+
+.machine-area.fail-drop .gift2 {
+  bottom: 0;
+  transform: translateX(-50%) rotate(4deg) scale(1);
+}
+
+.machine-area.success-catch .gift2 {
+  bottom: 112px;
+  transform: translateX(-50%) rotate(4deg) scale(0.9);
+}
+
+.machine-area.success-lift .claw {
+  top: 14%;
+}
+
+.machine-area.success-lift .gift2 {
+  bottom: 230px;
+  transform: translateX(-50%) rotate(4deg) scale(0.84);
+}
+
+.machine-area.success-out .gift2 {
+  bottom: -45px;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.45);
+}
+
+.final-page {
+  display: none;
+  text-align: center;
+  animation: finalIn 1s ease forwards;
+}
+
+.final-page.show {
+  display: block;
+}
+
+.glow {
+  font-size: 46px;
+  animation: sparkle 1s ease infinite alternate;
+}
+
+.final-title {
+  font-size: 24px;
+  color: #8a5a34;
+  margin: 8px 0 18px;
+}
+
+.final-bag {
+  width: min(68vw, 280px);
+  animation: bagPop 0.9s ease forwards;
+}
+
+.final-text {
+  font-size: 18px;
+  color: #8a5a34;
+  margin-top: 18px;
+}
+
+@keyframes clawShake {
+  from {
+    transform: translateX(-50%) rotate(-3deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(3deg);
+  }
+}
+
+@keyframes giftWobble {
+  0% {
+    transform: translateX(-50%) rotate(4deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-12deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(12deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(-7deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(4deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes finalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bagPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-8deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes sparkle {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}.home-btn {
+  display: inline-block;
+  margin-top: 25px;
+
+  padding: 12px 26px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  background: #f5b8c7;
+  color: #805133;
+
+  font-weight: bold;
+
+  box-shadow: 0 5px 0 #d990a2;
+
+  transition: 0.25s;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px);
+}
+
+.home-btn:active {
+  transform: translateY(2px);
+}
