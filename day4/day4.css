@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff9ef;
+    color: #5d4b33;
+}
+
+/* 页面 */
+
+.page {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 1s ease;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 背景 */
+
+.background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 内容 */
+
+.content {
+    text-align: center;
+}
+
+/* 标题 */
+
+h1 {
+    font-size: 64px;
+    font-weight: 300;
+
+    margin-bottom: 12px;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px rgba(0,0,0,.2);
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 300;
+
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* 相机 */
+
+.camera {
+    cursor: pointer;
+
+    transition: .4s ease;
+}
+
+.camera:hover {
+    transform: scale(1.05);
+}
+
+.start-camera {
+    width: 220px;
+
+    margin-top: 40px;
+}
+
+.street-camera {
+    width: 280px;
+
+    margin-top: 40px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* 取景框 */
+
+.viewfinder {
+
+    width: 80vw;
+    max-width: 850px;
+
+    height: 60vh;
+    max-height: 520px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    border: 10px solid rgba(255,255,255,.75);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.2);
+
+    position: relative;
+}
+
+/* 街景 */
+
+.street-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.street-bg img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* REC */
+
+.camera-ui {
+
+    position: absolute;
+    inset: 0;
+
+    color: white;
+
+    font-family: monospace;
+}
+
+.rec {
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+}
+
+.battery {
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+}
+
+/* 对焦框 */
+
+.focus-box {
+
+    width: 180px;
+    height: 120px;
+
+    border: 2px solid white;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+/* 指令 */
+
+.command {
+
+    margin-top: 24px;
+
+    background: rgba(255,255,255,.75);
+
+    padding: 12px 24px;
+
+    border-radius: 999px;
+
+    font-size: 20px;
+}
+
+/* 按钮区域 */
+
+.buttons {
+
+    display: flex;
+    gap: 12px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+button {
+
+    border: none;
+
+    background: rgba(255,255,255,.85);
+
+    padding: 12px 24px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: .3s ease;
+}
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+}
+
+/* 定格相框 */
+
+.frame-photo {
+
+    width: 400px;
+
+    max-width: 80vw;
+
+    margin: 35px 0;
+}
+
+/* 相册 */
+
+.album {
+
+    width: 500px;
+
+    max-width: 85vw;
+
+    margin-top: 30px;
+
+    cursor: pointer;
+
+    transition: .5s ease;
+}
+
+.album:hover {
+
+    transform: scale(1.03);
+}
+
+/* 最后文字 */
+
+.album-message {
+
+    margin-top: 30px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition: .8s ease;
+}
+
+.album-message.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.album-message p {
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.album-message span {
+
+    font-size: 16px;
+
+    opacity: .7;
+}
+
+/* 闪光 */
+
+#flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+#flash.show {
+
+    animation: flash .7s ease;
+}
+
+@keyframes flash {
+
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* 手机适配 */
+
+@media (max-width: 768px) {
+
+    h1 {
+
+        font-size: 46px;
+    }
+
+    h2 {
+
+        font-size: 32px;
+    }
+
+    p {
+
+        font-size: 18px;
+    }
+
+    .start-camera {
+
+        width: 180px;
+    }
+
+    .street-camera {
+
+        width: 220px;
+    }
+
+    .viewfinder {
+
+        width: 90vw;
+        height: 50vh;
+    }
+
+}.home-btn {
+
+    position: fixed;
+
+    top: 25px;
+    right: 25px;
+
+    z-index: 9999;
+
+    text-decoration: none;
+
+    background: rgba(255,255,255,.85);
+
+    color: #5d4b33;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    font-size: 15px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.12);
+
+    transition: .3s ease;
+}
+
+.home-btn:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+}

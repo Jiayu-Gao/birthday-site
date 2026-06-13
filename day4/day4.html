@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 - Summer Photoshoot</title>
+
+    <link rel="stylesheet" href="day4.css">
+</head>
+
+<body>
+
+    <!-- 页面1 开场 -->
+
+    <section class="page active" id="page1">
+
+        <div class="background">
+            <img src="d4 bk.png" alt="">
+        </div>
+
+        <div class="content">
+
+            <h1>Day 4</h1>
+
+            <p>Summer Photoshoot</p>
+
+            <img
+                src="ccd.png"
+                class="camera start-camera"
+                id="startCamera"
+                alt="camera">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 页面2 街道 -->
+
+    <section class="page" id="page2">
+
+        <div class="background">
+            <img src="d4 street.png" alt="">
+        </div>
+
+        <div class="content">
+
+            <h2>Today's Little Gift</h2>
+
+            <p>I prepared a summer photoshoot for you.</p>
+
+            <img
+                src="ccd.png"
+                class="camera street-camera"
+                id="streetCamera"
+                alt="camera">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 页面3 相机取景框 -->
+
+    <section class="page" id="page3">
+
+        <div class="viewfinder">
+
+            <div class="street-bg">
+
+                <img src="d4 street.png" alt="">
+
+            </div>
+
+            <div class="camera-ui">
+
+                <div class="rec">
+                    ● REC
+                </div>
+
+                <div class="battery">
+                    BAT 87%
+                </div>
+
+                <div class="focus-box"></div>
+
+            </div>
+
+        </div>
+
+        <div class="command" id="commandText">
+
+            smile a little
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="cmd-btn">
+                look here
+            </button>
+
+            <button class="cmd-btn">
+                don't move—
+            </button>
+
+            <button class="cmd-btn">
+                closer
+            </button>
+
+            <button id="shutterBtn">
+
+                📸 shutter
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 页面4 定格 -->
+
+    <section class="page" id="page4">
+
+        <div class="content">
+
+            <h2>One Summer Frame</h2>
+
+            <p>To be developed.</p>
+
+            <img
+                src="time.png"
+                class="frame-photo"
+                alt="frame">
+
+            <button id="openAlbumBtn">
+
+                Open Album
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 页面5 相册 -->
+
+    <section class="page" id="page5">
+
+        <div class="content">
+
+            <h2>Our Summer Album</h2>
+
+            <img
+                src="xc.png"
+                class="album"
+                id="albumImage"
+                alt="album">
+
+            <div
+                class="album-message"
+                id="albumMessage">
+
+                <p>
+
+                    Reserved for our summer memories.
+
+                </p>
+
+                <p>
+
+                    Let's make them together.
+
+                </p>
+
+                <span>
+
+                    from DIANDIAN
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 白色闪光 -->
+
+    <div id="flash"></div>
+
+
+
+    <script src="day4.js"></script>
+
+</body>
+<a href="../house.html" class="home-btn">
+    ← Home
+</a>
+
+</html>
