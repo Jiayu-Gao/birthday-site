@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 2</title>
+  <link rel="stylesheet" href="day2.css">
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- 背景 -->
+  <div class="bg"></div>
+
+  <!-- 信封 -->
+  <div class="envelope" id="envelope">
+    <img src="letter.jpg">
+  </div>
+
+  <!-- 明信片 -->
+  <div class="cards">
+
+    <div class="card" id="card1">
+      <div class="inner">
+        <div class="front">
+          <img src="mila.jpg">
+        </div>
+        <div class="back">
+          <div class="postcard-back">
+            <div class="stamp">BARCELONA</div>
+            <div class="message" data-text="This place looked like it was quietly breathing, like something out of a dream. I stood there for a while and wondered if you would like it too. It felt strange not to share that moment with you."></div>
+            <div class="diary-note">April · Casa Milà</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="card2">
+      <div class="inner">
+        <div class="front">
+          <img src="sjt.jpg">
+        </div>
+        <div class="back">
+          <div class="postcard-back">
+            <div class="stamp">BARCELONA</div>
+            <div class="message" data-text="The light inside kept changing with every step, soft colors falling everywhere. It was quiet in a way that made everything feel slow. I think if you were there, we wouldn’t even need to say anything."></div>
+            <div class="diary-note">April · Sagrada Família</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 输入框 -->
+  <div class="send-box hidden" id="sendBox">
+    <textarea id="userText" placeholder="write something for her..."></textarea>
+    <button id="sendBtn">send ✈️</button>
+  </div>
+
+  <!-- 提示文字 -->
+  <div class="sent-note" id="sentNote">
+    it's on its way ✉️
+  </div>
+
+<div class="memory-stack" id="memoryStack">
+  <div class="memory-title">sent memories</div>
+<button class="back-home" onclick="goHome()">← back</button>
+</div>
+</div>
+
+<script src="day2.js"></script>
+</body>
+</html>
